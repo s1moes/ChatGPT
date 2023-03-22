@@ -30,5 +30,6 @@ public class Main {
 			System.err.println(e.getMessage());
 			return;
 		}
+		System.out.println(jsonPayLoad);
 	}
 }
