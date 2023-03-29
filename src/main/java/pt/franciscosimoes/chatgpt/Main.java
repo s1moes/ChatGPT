@@ -3,12 +3,15 @@ package pt.franciscosimoes.chatgpt;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import pt.franciscosimoes.chatgpt.model.Chat;
+import pt.franciscosimoes.chatgpt.model.Message;
 import pt.franciscosimoes.chatgpt.model.request.OpenAiRequest;
 
 public class Main {
 
 	public static void main(String[] args) {
-
+		
+		
 		OpenAiRequest req = new OpenAiRequest();
 		req.setModel("text-davinci-003");
 		req.setPrompt("you are and AI\nAI:");
