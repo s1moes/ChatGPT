@@ -15,8 +15,11 @@ import pt.franciscosimoes.chatgpt.util.FileUtils;
 public class Main {
 
 	public static void main(String[] args) throws IOException{
+		
 		Map<String, String> config = ConfigParser.parse("application.properties");
 		String greeting = config.get("greeting");
+		
+		System.out.println(greeting);
 		
 		OpenAiRequest req = new OpenAiRequest();
 		req.setModel("text-davinci-003");
@@ -30,9 +33,7 @@ public class Main {
 		req.getModel();
 		
 		ObjectMapper mapper = new ObjectMapper();
-		
 		String jsonPayLoad = null;
-		
 		try {
 			jsonPayLoad = mapper.writeValueAsString(req);
 		} catch (JsonProcessingException e) {

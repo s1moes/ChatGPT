@@ -17,10 +17,10 @@ public class FileUtils {
 	
 	try {
 	while ((line = reader.readLine()) != null) {
-		result.add(null);
+		result.add(line);
 	}
 	}catch(IOException e) {
-		reader.close();
+		throw e;
 	}finally {
 		reader.close();
 	}
