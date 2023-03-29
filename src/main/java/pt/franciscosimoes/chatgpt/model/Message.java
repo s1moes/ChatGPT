@@ -9,8 +9,8 @@ public class Message {
 		
 	}
 	public Message(String subject, String content) {
-		this.subject.
-		this.content.
+		this.subject = subject;
+		this.content = content;
 	}
 	
 	public String getSubject() {
