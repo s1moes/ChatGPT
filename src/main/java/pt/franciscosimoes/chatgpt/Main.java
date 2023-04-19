@@ -7,7 +7,9 @@ import java.util.Map;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import pt.franciscosimoes.chatgpt.model.Chat;
 import pt.franciscosimoes.chatgpt.model.request.*;
+import pt.franciscosimoes.chatgpt.model.request.factory.OpenAIRequestFactory;
 import pt.franciscosimoes.chatgpt.util.ConfigParser;
 import pt.franciscosimoes.chatgpt.util.FileUtils;
 
@@ -19,20 +21,13 @@ public class Main {
 
 		System.out.println(greeting);
 
-		OpenAiRequest req = new OpenAiRequest();
-		req.setModel("text-davinci-003");
-		req.setPrompt("You are and AI\nAI:");
-		req.setTemperature(0.5f);
-		req.setMaxTokens(60);
-		req.setTopP(1.0f);
-		req.setFrequencyPenalty(0.5f);
-		req.setPresencePenalty(0.5f);
-		req.setStop(new String[] { "AI:" });
+		OpenAIRequestFactory openAiRequestFactory = new OpenAIRequestFactory();
+		Chat chat = new Chat(greeting);
 
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonPayload = null;
 		try {
-			jsonPayload = mapper.writeValueAsString(req);
+			jsonPayload = mapper.writeValueAsString(openAiRequestFactory);
 		} catch (JsonProcessingException e) {
 			System.err.println(e.getMessage());
 			return;
